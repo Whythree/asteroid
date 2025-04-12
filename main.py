@@ -4,13 +4,25 @@ from constants import *
 def main():
     print("Starting Asteroids!")
     pygame.init()
+
+    dt = 0
+    clock = pygame.time.Clock()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+
+
     while True:
-        screen.fill((0,0,0))
-        pygame.display.flip()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
+
+        print(dt)
+        screen.fill((0,0,0))
+        dt = clock.tick(60) / 1000
+        pygame.display.flip()
+
+
+
+
 
 if __name__ == "__main__":
     main()
