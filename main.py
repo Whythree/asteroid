@@ -30,11 +30,15 @@ def main():
             if event.type == pygame.QUIT:
                 return
 
-        print(dt)
         screen.fill((0,0,0))
 
         for item in drawable:
             item.draw(screen)
+
+        for asteroid in asteroids:
+            if asteroid.collide(player):
+                print("Game Over!")
+                sys.exit()
 
         updatable.update(dt)
 
